@@ -16,3 +16,19 @@ rbac:
         verbs: ["get", "list"]
   roleBinding:
     name: ""
+
+service:
+  type: ClusterIP
+  labels: 
+    svc: nginx
+  portList:
+    - port: 80
+      protocol: tcp
+      targetPort: 80
+    - protocol: tcp 
+      port: 443
+      targetPort: 443
+  annotations: {}
+  selectors:
+    app: nginx
+  
