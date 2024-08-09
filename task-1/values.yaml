@@ -7,3 +7,14 @@ sa:
   automount: true
   annotations: {}
   labels: {}
+
+rbac:
+  enable: true
+  roles:
+    name: ""
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list"]
+  roleBinding:
+    name: ""
