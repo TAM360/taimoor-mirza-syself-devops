@@ -1,0 +1,15 @@
+{{- if .Values.sa.enable -}}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Values.nameOverride | default "nginx" }}-sa
+  {{- with .Values.sa.labels }}
+  labels:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.sa.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+automountServiceAccountToken: {{ .Values.sa.automount }}
+{{- end }}
