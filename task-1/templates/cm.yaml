@@ -1,0 +1,11 @@
+{{- if .Values.configMap -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.nameOverride | default "nginx" }}-cm
+  namespace: {{ .Release.Namespace }}
+data:
+  {{- range $key, $value := .Values.configMap.data }}
+  {{ $key }}: {{ $value }}
+  {{- end }}
+{{- end }}

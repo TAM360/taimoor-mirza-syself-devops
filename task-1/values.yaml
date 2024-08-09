@@ -71,3 +71,19 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+# TODO: Provide option to mount secrets, and CMs as 
+#       volumes in the main Deployment.
+configMap:
+  enable: true
+  name: ""
+  data:
+    key1: "value1"
+    key2: "value2"
+
+secrets: {}
+  # enable: false
+  # name: ""
+  # data:
+  #   username: "admin"
+  #   password: "supersecret"
