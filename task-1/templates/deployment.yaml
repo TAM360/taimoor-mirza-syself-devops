@@ -6,6 +6,7 @@ metadata:
     {{- with .Values.podLabels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
+  namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
