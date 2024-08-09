@@ -18,7 +18,7 @@ spec:
       targetPort: {{ .targetPort }}
       protocol: {{ .protocol | upper }}
   {{- end }}
-  {{- with .Values.service.selectors }}
+  {{- with .Values.podLabels }}
   selectors:
     {{- toYaml . | nindent 4 }}
   {{- end }}
