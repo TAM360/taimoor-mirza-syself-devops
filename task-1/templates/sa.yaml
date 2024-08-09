@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ .Values.nameOverride | default "nginx" }}-sa
-  {{- if .Values.namespace }}
+  {{- if .Release.namespace }}
   namespace: {{ .Values.namespace }}
   {{- end }}
   {{- with .Values.sa.labels }}

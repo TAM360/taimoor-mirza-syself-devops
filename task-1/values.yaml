@@ -1,7 +1,5 @@
 nameOverride: ""
 
-namespace: ""
-
 sa:
   enable: true
   automount: true
