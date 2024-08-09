@@ -1,10 +1,32 @@
 nameOverride: ""
 
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+
+replicaCount: 3
+
+podAnnotations: {}
+podLabels:
+  app: nginx
+
 sa:
   enable: true
   automount: true
   annotations: {}
   labels: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+readinessProbe:
+  httpGet:
+    path: /
+    port: 80
 
 rbac:
   enable: true
